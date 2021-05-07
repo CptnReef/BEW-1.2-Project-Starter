@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>New Gamer Garage Sale</h1>
+
+<form method="POST">
+    <fieldset>
+        <legend>Please enter your information:</legend>
+
+            {{ gameGarageForm.csrf_token() }}
+            {{ gameGarageForm.title.label() }}
+            {{ gameGarageForm.title() }}
+            {{ gameGarageForm.address.label() }}
+            {{ gameGarageForm.address() }}
+            {{ gameGarageForm.submit_button() }}
+    
+    </fieldset>
+</form>
+
+
+{% endblock %}

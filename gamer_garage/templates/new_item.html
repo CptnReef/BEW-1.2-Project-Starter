@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>New Game Item</h1>
+
+<form method="POST">
+    <fieldset>
+        <legend>Please enter your information:</legend>
+
+            {{ gameItemForm.csrf_token() }}
+            {{ gameItemForm.name.label() }}
+            {{ gameItemForm.name() }}
+            {{ gameItemForm.price.label() }}
+            {{ gameItemForm.price() }}
+            {{ gameItemForm.category.label() }}
+            {{ gameItemForm.category() }}
+            {{ gameItemForm.photo_url.label() }}
+            {{ gameItemForm.photo_url() }}
+            {{ gameItemForm.store.label() }}
+            {{ gameItemForm.store() }}
+            {{ gameItemForm.submit_button() }}
+    
+    </fieldset>
+</form>
+
+
+{% endblock %}
