@@ -5,7 +5,7 @@ from wtforms.validators import DataRequired, Length, URL
 from .models import GamerGarage, GameSelection, ImageSelection, User
 
 class GameGarageForm(FlaskForm):
-    """Form for adding/updating a Gamer Garage."""
+    """Form for adding/updating a garage_shops."""
 
     title = StringField('Title')
     address = StringField('Address')

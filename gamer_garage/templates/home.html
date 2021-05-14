@@ -7,7 +7,7 @@
 
 <h2>All Stores</h2>
 
-{% for store in all_stores %}
+{% for store in garage_shops %}
 <div class="store">
     <a href="/store/{{ store.id }}">{{ store.title }}</a> - 
     {{ store.items|length }} items

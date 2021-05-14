@@ -17,9 +17,9 @@ auth = Blueprint("auth", __name__)
 
 @main.route('/')
 def homepage():
-    all_stores = GamerGarage.query.all()
-    print(all_stores)
-    return render_template('home.html', all_stores=all_stores)
+    garage_shops = GamerGarage.query.all()
+    print(garage_shops)
+    return render_template('home.html', garage_shops=garage_shops)
 
 @main.route('/new_store', methods=['GET', 'POST'])
 @login_required
@@ -87,22 +87,26 @@ def item_detail(item_id):
         item.price = gameItemForm.price.data
         item.store = gameItemForm.store.data
         db.session.commit()
-        flash('Success')
 
         return redirect(url_for('main.item_detail', item_id=item_id))
 
     item = GameItem.query.get(item_id)
     return render_template('item_detail.html', item=item, gameItemForm=gameItemForm, current_user=current_user)
 
-@main.route('/shopping_list')
+@main.route('/game_list/<item_id>', methods=['POST'])
 @login_required
-def shopping_list():
-    return render_template('game_list.html', current_user=current_user)
+def add_to_game_list(item_id):
+    item = db.session.query(GameItem).get(item_id)
+    if item is not None:
+        current_user.game_collection_items.append(item)
+        db.session.commit()
+    return redirect(url_for('main.game_list'))
 
-@main.route('/game_list', methods=['POST'])
+@main.route('/game_list')
 @login_required
 def game_list():
-    pass
+    return render_template('game_list.html', current_user=current_user)
+
 ######################################################################################################
 ######################################################################################################
 ######################################################################################################

@@ -25,7 +25,7 @@ class ImageSelection(FormEnum):
     OTHER = 'other.png'
 
 class GamerGarage(db.Model):
-    """Gamer Garage model."""
+    """garage_shops model."""
     __tablename__="gamer_garage"
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), nullable=False)

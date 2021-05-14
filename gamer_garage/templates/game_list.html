@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 {% block content %}
 
@@ -9,7 +8,7 @@
 <div class="items">
     {% for item in current_user.game_collection_items %}
     <div class="item-details">
-        <a href="/item/{{ item.id }}"><img src="/static/img/{{item.name}}" alt="{{ item.name }}" width="200px">
+        <a href="/item/{{ item.id }}"><img src="/static/img/{{ item.name }}.png" alt="{{ item.name }}" width="200px">
         <p><strong>{{ item.name }}</strong></p></a>
         <p><strong>Price: ${{ item.price }}</strong></p>
     </div>
