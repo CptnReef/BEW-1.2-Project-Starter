@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, SelectField, SubmitField, FloatField, PasswordField
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from wtforms.validators import DataRequired, Length, URL
-from .models import GamerGarage, ItemSelection, User
+from .models import GamerGarage, GameSelection, ImageSelection, User
 
 class GameGarageForm(FlaskForm):
     """Form for adding/updating a Gamer Garage."""
@@ -13,13 +13,12 @@ class GameGarageForm(FlaskForm):
 
 class GameItemForm(FlaskForm):
     """Form for adding/updating a GameItem."""
-
-    name = StringField('Name')
+    
+    name = SelectField(choices=[(x.name, x.value) for x in GameSelection])
     price = FloatField('Price')
-    category = SelectField(choices=[(x.name, x.value) for x in ItemSelection])
-    photo_url = StringField('Photo URL')
     store = QuerySelectField(query_factory=lambda: GamerGarage.query, allow_blank=False, get_label='title')
     submit_button = SubmitField('Submit')
+
 
 class SignUpForm(FlaskForm):
     username = StringField('User Name',

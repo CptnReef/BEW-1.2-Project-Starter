@@ -30,7 +30,7 @@ def new_store():
         newGameGarage = GamerGarage(
             title=gameGarageForm.title.data,
             address=gameGarageForm.address.data,
-            created_by=current_user
+            pickup_by=current_user
         )
         db.session.add(newGameGarage)
         db.session.commit()
@@ -48,10 +48,8 @@ def new_item():
         newGameItem = GameItem(
             name=gameItemForm.name.data,
             price=gameItemForm.price.data,
-            category=gameItemForm.category.data,
-            photo_url=gameItemForm.photo_url.data,
             store=gameItemForm.store.data,
-            created_by=current_user
+            pickup_by=current_user
         )
         db.session.add(newGameItem)
         db.session.commit()
@@ -87,8 +85,6 @@ def item_detail(item_id):
     if gameItemForm.validate_on_submit():
         item.name = gameItemForm.name.data
         item.price = gameItemForm.price.data
-        item.category = gameItemForm.category.data
-        item.photo_url = gameItemForm.photo_url.data
         item.store = gameItemForm.store.data
         db.session.commit()
         flash('Success')
