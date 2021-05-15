@@ -14,16 +14,6 @@ class GameSelection(FormEnum):
     POKEMON_STADIUM = 'Pokemon Stadium'
     OTHER = 'Other'
 
-class ImageSelection(FormEnum):
-    """Categories of game selection."""
-    MARIO_BROS_1 = 'mario_bros.jpeg'
-    KILLER_INSTINCT = 'killer_instinct.jpeg'
-    SOUL_REAVER = 'soul_reaver.jpeg'
-    SONIC_ADVENTURE = 'Sonic Adventure.png'
-    SPYRO = 'Spyro.png'
-    POKEMON_STADIUM = 'pokemon_stadium.jpeg'
-    OTHER = 'other.png'
-
 class GamerGarage(db.Model):
     """garage_shops model."""
     __tablename__="gamer_garage"

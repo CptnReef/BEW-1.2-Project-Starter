@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, SelectField, SubmitField, FloatField, PasswordField
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from wtforms.validators import DataRequired, Length, URL
-from .models import GamerGarage, GameSelection, ImageSelection, User
+from .models import GamerGarage, GameSelection, User
 
 class GameGarageForm(FlaskForm):
     """Form for adding/updating a garage_shops."""
